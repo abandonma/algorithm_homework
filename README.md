@@ -4,32 +4,29 @@
 
 ## 项目结构
 
-algorithm_homework/
-├── 1yinguotuiduan/               # 任务1 因果推断
-│   ├── ATE_causal_analysis.py      # ATE估计值计算
-│   ├── causal_synthetic.csv
-│   └── generate_data.py            # 生成因果数据
-│
-├── 2jiqixuexi/                   # 任务2 机器学习
-│   ├── titanic.csv                 # 原始titanic数据集
-│   ├── titanic_clean.csv           # 清洗编码后titanic数据集
-│   ├── titanic_data_clean.py       # 数据清洗与特征工程：处理缺失值、生成新特征并编码
-│   ├── titanic_model.py            # 模型训练：逻辑回归、随机森林、GBDT；5折交叉验证
-│   └── result/                     # 存放评估结果：ROC曲线、PR曲线、混淆矩阵
-│
-├── 3shenduxuexi/                 # 任务3 深度学习
-│   ├── cifar_train.py              # 模型训练
-│   ├── cifar_eval.py               # 模型评估
-│   ├── cifar_model.py              # 视觉模型搭建：简单CNN、ResNet、DenseNet
-│   ├── cifar_config.py             # 超参数组合
-│   ├── cifar_data.py               # 数据加载与可视化、数据增强方法
-│   ├── data/                       # CIFAR-10数据集
-│   ├── models/                     # 保存的模型权重
-│   ├── figures/                    # 训练曲线图
-│   └── runs/                       # TensorBoard日志
-│
-└── requirements.txt              # 运行环境  
-└── README.md
+    algorithm_homework/
+        -1yinguotuiduan/             # 任务1 因果推断
+            -ATE_causal_analysis.py      # ATE估计值计算
+            -causal_synthetic.csv
+            -generate_data.py            # 生成因果数据
+        -2jiqixuexi/                 # 任务2 机器学习
+            -titanic.csv                 # 原始titanic数据集
+            -titanic_clean.csv           # 清洗编码后titanic数据集
+            -titanic_data_clean.py       # 数据清洗与特征工程：处理缺失值、生成新特征并编码
+            -titanic_model.py            # 模型训练：逻辑回归、随机森林、GBDT；5折交叉验证
+            -result/                     # 存放评估结果：ROC曲线、PR曲线、混淆矩阵
+        -3shenduxuexi/               # 任务3 深度学习
+            -cifar_train.py              # 模型训练
+            -cifar_eval.py               # 模型评估
+            -cifar_model.py              # 视觉模型搭建：简单CNN、ResNet、DenseNet
+            -cifar_config.py             # 超参数组合
+            -cifar_data.py               # 数据加载与可视化、数据增强方法
+            -data/                       # CIFAR-10数据集
+            -models/                     # 保存的模型权重
+            -figures/                    # 训练曲线图
+            -runs/                       # TensorBoard日志
+        -requirements.txt            # 运行环境  
+        -README.md
 
 ## 配置环境
     pip install -r requirements.txt
