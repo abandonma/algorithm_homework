@@ -1,5 +1,4 @@
 import pandas as pd
-import seaborn as sns
 import numpy as np
 from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LogisticRegression
@@ -31,21 +30,21 @@ def fill_compare(data):
     df_tmp.drop("Cabin", axis=1, inplace=True)
 
     X_raw = df_tmp.drop(["Survived"], axis=1).select_dtypes(include=[np.number]) # 只筛选数值型特征
-    y = df_tmp["Survived"] # 分类标签-是否幸存
+    y = df_tmp["Survived"]
 
-    # -------- 1 Age均值填充 --------
+    # Age均值填充
     df1 = df_tmp.copy()
     df1["Age"] = df1["Age"].fillna(df1["Age"].mean())
     X1 = df1[X_raw.columns]
     score1 = cross_val_score(LogisticRegression(max_iter=1000), X1, y, cv=5).mean() # 5折交叉验证
 
-    # -------- 2 Age中位数填充 --------
+    # Age中位数填充
     df2 = df_tmp.copy()
     df2["Age"] = df2["Age"].fillna(df2["Age"].median())
     X2 = df2[X_raw.columns]
     score2 = cross_val_score(LogisticRegression(max_iter=1000), X2, y, cv=5).mean()
 
-    # -------- 3 Age众数填充 --------
+    # Age众数填充
     df3 = df_tmp.copy()
     df3["Age"] = df3["Age"].fillna(df3["Age"].mode()[0])
     X3 = df3[X_raw.columns]
@@ -55,7 +54,7 @@ def fill_compare(data):
     print(f"Age中位数填充median准确率: {score2:.4f}")
     print(f"Age众数填充mode准确率: {score3:.4f}")
 
-    # 对比分数，返回最优的Age填充策略
+    # 最优填充策略
     score_dict = {"mean": score1, "median": score2, "mode": score3}
     best_strategy = max(score_dict, key=score_dict.get)
     # print(best_strategy)

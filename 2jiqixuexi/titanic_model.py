@@ -3,7 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import (KFold, cross_validate, GridSearchCV)
+from sklearn.model_selection import (KFold, GridSearchCV)
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier, StackingClassifier
 from sklearn.preprocessing import StandardScaler
@@ -89,7 +89,6 @@ def evaluate_model(model, name):
         X_test = X.iloc[test_idx]
         y_test = y.iloc[test_idx]
 
-        # 逻辑回归使用标准化数据，树模型不用
         if isinstance(model, LogisticRegression):
             X_train_trans = scaler.transform(X_train)
             X_test_trans = scaler.transform(X_test)
