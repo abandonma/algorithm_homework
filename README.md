@@ -61,6 +61,7 @@
     python cifar_data.py     # 数据可视化
     python cifar_train.py    # 训练模型：SimpleCNN、ResNet、DenseNet
     python cifar_eval.py     # 评估最优模型
+    tensorboard --logdir=runs # 查看tensorboard记录数据
   ### 输出：
     models/ - 保存的模型权重
     figures/ - 保存曲线对比图
